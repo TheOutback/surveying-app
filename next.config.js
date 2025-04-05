@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
-    basePath: '/jl-surveying-app',
+    reactStrictMode: true,
+    swcMinify: true,
     images: {
-      unoptimized: true,
+      domains: ['https://supabase.com/dashboard/project/zslkcfekjkhkczvdghxi/settings/general'],
+      unoptimized: process.env.NODE_ENV !== 'production',
     },
   }
   
