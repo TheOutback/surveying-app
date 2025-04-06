@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { supabase } from "@/lib/supabase"
 import type { Message } from "@/lib/supabase"
-import { ArrowLeft, Mail, Phone, Calendar, Trash2, AlertTriangle } from 'lucide-react'
+import { ArrowLeft, Mail, Phone, Calendar, Trash2, AlertTriangle } from "lucide-react"
 import { useRouter } from "next/navigation"
 import {
   AlertDialog,
@@ -21,14 +21,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 
-// Correctly type the component for Next.js 15.2.4
-type MessageDetailPageProps = {
-  params: {
-    id: string
-  }
+interface MessageDetailPageProps {
+  params: { id: string }
 }
 
-const MessageDetailPage = ({ params }: MessageDetailPageProps) => {
+export default function MessageDetailPage({ params }: MessageDetailPageProps) {
   const [message, setMessage] = useState<Message | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -286,4 +283,3 @@ CREATE TABLE public.messages (
   )
 }
 
-export default MessageDetailPage
